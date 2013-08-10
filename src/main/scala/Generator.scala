@@ -8,12 +8,25 @@ object Generator extends App {
 
     val engine = new TemplateEngine
     val outputFile = new File("index.html")
-    val webPath = new File(outputFile.getParentFile, "src/main/resources").toURI
+    val resources = "src/main/resources"
+    val contentFolder = new File(outputFile.getParentFile, resources)
+    val webPath = contentFolder.toURI
 
-    val entries = List(getTemplate("2013/08-04-Demo", "/index.md"))
-    writeToFile(toHtml(entries.mkString("\n")), outputFile)
+    writeToFile(toHtml(findEntries.mkString("\n")), outputFile)
 
-    def getTemplate(pathTo:String, fileName:String, map:Map[String,String]
+    def findEntries():List[String] = {
+        def findRecursiv(file:File, filter:File => Boolean):Array[File] = {
+            val files = file.listFiles
+            return files.filter(filter) ++ files.filter(_.isDirectory)
+                .flatMap(findRecursiv(_,filter))
+        }
+        return findRecursiv(contentFolder, _.getName == "index.md")
+            .map(index => index.getParentFile.getPath.substring(resources.length + 1))
+            .map(folder => toTemplate(folder, "/index.md"))
+            .toList.reverse
+    }
+
+    def toTemplate(pathTo:String, fileName:String, map:Map[String,String]
         = Map.empty[String,String]):String = {
         val text = Source.fromInputStream(getClass.getResourceAsStream(pathTo + fileName)).mkString
         val template = engine.compileMoustache(text)
@@ -22,7 +35,7 @@ object Generator extends App {
     }
 
     def toHtml(md:String):String = {
-        return getTemplate("", "main.mu", Map("entries" -> fromMdtoHtml(md)))
+        return toTemplate("", "main.mu", Map("entries" -> fromMdtoHtml(md)))
     }
 
     def fromMdtoHtml(input:String) = new ActuariusTransformer()(input)
