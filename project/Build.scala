@@ -8,6 +8,7 @@ object ProjectBuild extends Build {
 
     val appDependencies = Seq(
         "com.typesafe" % "config" % "1.0.2",
+        "org.eclipse.jgit" % "org.eclipse.jgit" % "3.0.0.201306101825-r",
         "eu.henkelmann" % "actuarius_2.10.0" % "0.2.6",
         "org.fusesource.scalate" %% "scalate-wikitext" % "1.6.1",
         "org.fusesource.scalate" %% "scalate-page" % "1.6.1"
