@@ -22,8 +22,9 @@ object Generator extends App {
         }
         return findRecursiv(contentFolder, _.getName == "index.md")
             .map(index => index.getParentFile.getPath.substring(resources.length + 1))
+            .sorted.reverse
             .map(folder => toTemplate(folder, "/index.md"))
-            .toList.reverse
+            .toList
     }
 
     def toTemplate(pathTo:String, fileName:String, map:Map[String,AnyRef]
