@@ -4,11 +4,11 @@ import Keys._
 object ProjectBuild extends Build {
 
     override lazy val settings = super.settings ++
-        Seq(scalaVersion := "2.10.2", resolvers := Seq())
+        Seq(scalaVersion := "2.10.4", resolvers := Seq())
 
     val appDependencies = Seq(
-        "com.typesafe" % "config" % "1.0.2",
-        "org.eclipse.jgit" % "org.eclipse.jgit" % "3.0.0.201306101825-r",
+        "com.typesafe" % "config" % "1.2.0",
+        "org.eclipse.jgit" % "org.eclipse.jgit" % "3.3.1.201403241930-r",
         "eu.henkelmann" % "actuarius_2.10.0" % "0.2.6",
         "org.fusesource.scalate" %% "scalate-wikitext" % "1.6.1",
         "org.fusesource.scalate" %% "scalate-page" % "1.6.1"
