@@ -1,4 +1,4 @@
-### Static HTML Generator with [Markdown][1] and [Mustache][2]
+### A Static HTML Generator with [Markdown][1] and [Mustache][2]
 
 To start:
 

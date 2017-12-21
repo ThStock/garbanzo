@@ -1,18 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-    <meta http-equiv="refresh" content="5" >
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>A Static Page Generator</title>
 </head>
-<body>
+<body style="margin: 2em;">
 <div class="container-fluid">
-    <div class="row">
-        <div class="span12">
-            <h1>garbanzo</h1>
-            {{{entries}}}
-        </div>
+  <div class="row">
+    <div class="span12">
+      <h1>Garbanzo</h1>
+      {{{entries}}}
     </div>
+  </div>
 </div>
 </body>
-<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </html>
